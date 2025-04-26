@@ -49,11 +49,14 @@
             this.lblFrameNo = new System.Windows.Forms.Label();
             this.lblTimeStamp = new System.Windows.Forms.Label();
             this.lblSpeed = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lbOutput = new System.Windows.Forms.ListBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblState = new System.Windows.Forms.Label();
+            this.lblCount = new System.Windows.Forms.Label();
+            this.lblValue = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,15 +85,18 @@
             this.tableLayoutPanel1.Controls.Add(this.lblFrameNo, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.lblTimeStamp, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.lblSpeed, 2, 8);
-            this.tableLayoutPanel1.Controls.Add(this.lbOutput, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.lbOutput, 0, 10);
             this.tableLayoutPanel1.Controls.Add(this.radioButton1, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.radioButton2, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.radioButton3, 2, 6);
+            this.tableLayoutPanel1.Controls.Add(this.lblState, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.lblCount, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.lblValue, 2, 9);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(3);
-            this.tableLayoutPanel1.RowCount = 10;
+            this.tableLayoutPanel1.RowCount = 11;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -99,6 +105,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1449, 993);
@@ -124,7 +131,7 @@
             this.tbServerIP.Name = "tbServerIP";
             this.tbServerIP.Size = new System.Drawing.Size(475, 40);
             this.tbServerIP.TabIndex = 1;
-            this.tbServerIP.Text = "127.0.0.1";
+            this.tbServerIP.Text = "192.168.0.32";
             this.tbServerIP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label2
@@ -147,7 +154,7 @@
             this.tbLocalIP.Name = "tbLocalIP";
             this.tbLocalIP.Size = new System.Drawing.Size(475, 40);
             this.tbLocalIP.TabIndex = 4;
-            this.tbLocalIP.Text = "127.0.0.1";
+            this.tbLocalIP.Text = "192.168.0.32";
             this.tbLocalIP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
@@ -182,7 +189,7 @@
             this.tbLeftRBID.Name = "tbLeftRBID";
             this.tbLeftRBID.Size = new System.Drawing.Size(475, 40);
             this.tbLeftRBID.TabIndex = 7;
-            this.tbLeftRBID.Text = "3";
+            this.tbLeftRBID.Text = "4";
             this.tbLeftRBID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbRightRBID
@@ -193,7 +200,7 @@
             this.tbRightRBID.Name = "tbRightRBID";
             this.tbRightRBID.Size = new System.Drawing.Size(475, 40);
             this.tbRightRBID.TabIndex = 8;
-            this.tbRightRBID.Text = "4";
+            this.tbRightRBID.Text = "5";
             this.tbRightRBID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnStart
@@ -327,12 +334,6 @@
             this.lblSpeed.Text = "Speed : ";
             this.lblSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 500;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // lbOutput
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.lbOutput, 3);
@@ -340,9 +341,9 @@
             this.lbOutput.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lbOutput.FormattingEnabled = true;
             this.lbOutput.ItemHeight = 24;
-            this.lbOutput.Location = new System.Drawing.Point(6, 448);
+            this.lbOutput.Location = new System.Drawing.Point(6, 476);
             this.lbOutput.Name = "lbOutput";
-            this.lbOutput.Size = new System.Drawing.Size(1437, 539);
+            this.lbOutput.Size = new System.Drawing.Size(1437, 511);
             this.lbOutput.TabIndex = 20;
             // 
             // radioButton1
@@ -362,12 +363,14 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
+            this.radioButton2.Checked = true;
             this.radioButton2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radioButton2.Font = new System.Drawing.Font("굴림", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.radioButton2.Location = new System.Drawing.Point(487, 282);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(475, 32);
             this.radioButton2.TabIndex = 22;
+            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Multicast";
             this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButton2.UseVisualStyleBackColor = true;
@@ -376,18 +379,57 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Checked = true;
             this.radioButton3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radioButton3.Font = new System.Drawing.Font("굴림", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.radioButton3.Location = new System.Drawing.Point(968, 282);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(475, 32);
             this.radioButton3.TabIndex = 23;
-            this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Broadcast";
             this.radioButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblState
+            // 
+            this.lblState.AutoSize = true;
+            this.lblState.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblState.Font = new System.Drawing.Font("굴림", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblState.Location = new System.Drawing.Point(487, 445);
+            this.lblState.Name = "lblState";
+            this.lblState.Size = new System.Drawing.Size(475, 28);
+            this.lblState.TabIndex = 24;
+            this.lblState.Text = "State : ";
+            this.lblState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCount
+            // 
+            this.lblCount.AutoSize = true;
+            this.lblCount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCount.Font = new System.Drawing.Font("굴림", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblCount.Location = new System.Drawing.Point(6, 445);
+            this.lblCount.Name = "lblCount";
+            this.lblCount.Size = new System.Drawing.Size(475, 28);
+            this.lblCount.TabIndex = 25;
+            this.lblCount.Text = "Count : ";
+            this.lblCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblValue
+            // 
+            this.lblValue.AutoSize = true;
+            this.lblValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblValue.Font = new System.Drawing.Font("굴림", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblValue.Location = new System.Drawing.Point(968, 445);
+            this.lblValue.Name = "lblValue";
+            this.lblValue.Size = new System.Drawing.Size(475, 28);
+            this.lblValue.TabIndex = 26;
+            this.lblValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -430,6 +472,9 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.Label lblState;
+        private System.Windows.Forms.Label lblCount;
+        private System.Windows.Forms.Label lblValue;
     }
 }
 

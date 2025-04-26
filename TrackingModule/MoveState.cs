@@ -1,9 +1,10 @@
 ﻿namespace MotionTracking
 {
-    public enum MoveState
-    {
-        Idle,
-        StationaryWalk,
-        FreeWalk
-    }
+    //public enum MoveState
+    //{
+    //    Idle,
+    //    StationaryWalk,
+    //    StationaryRun,
+    //    FreeWalk
+    //}
 }

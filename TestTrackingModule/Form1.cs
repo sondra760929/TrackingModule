@@ -13,7 +13,7 @@ namespace TestTrackingModule
 {
     public partial class Form1 : Form
     {
-        int current_cast_mode = 2;
+        int current_cast_mode = 1;
         public Form1()
         {
             InitializeComponent();
@@ -21,12 +21,12 @@ namespace TestTrackingModule
 
         private void btnMoveOffsetUpdate_Click(object sender, EventArgs e)
         {
-            TrackingModule.SetMovementThreshold(float.Parse(tbMoveOffset.Text));
+            //TrackingModule.SetMovementThreshold(float.Parse(tbMoveOffset.Text));
         }
 
         private void btnWalkOffsetUpdate_Click(object sender, EventArgs e)
         {
-            TrackingModule.SetStepHeightThreshold(float.Parse(tbWalkOffset.Text));
+            //TrackingModule.SetStepHeightThreshold(float.Parse(tbWalkOffset.Text));
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -44,6 +44,9 @@ namespace TestTrackingModule
             lblFrameNo.Text = $"Frame No: {TrackingModule.GetFrameNumber()}";
             lblTimeStamp.Text = $"Time Stamp: {TrackingModule.GetTimeStamp()}";
             lblSpeed.Text = $"Speed: {TrackingModule.GetWalkingSpeed()}";
+            lblState.Text = $"Status: {TrackingModule.GetMotionState()}";
+            lblCount.Text = $"Count: {TrackingModule.GetStepCount()}";
+            lblValue.Text = $"{TrackingModule.GetStepInterval()} / {TrackingModule.GetMaxFootHeight()} / {TrackingModule.GetMaxStride()}";
 
             List<string> output = TrackingModule.GetOutputList();
             for(int i = 0; i < output.Count; i++)

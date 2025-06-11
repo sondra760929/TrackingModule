@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettingsUI", "SettingsUI\Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackingServerService", "TrackingServerService\TrackingServerService.csproj", "{9EE5989B-2A96-4787-84BC-09C8D162342B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackingMonitorGUI", "TrackingMonitorGUI\TrackingMonitorGUI.csproj", "{06C0335E-9D33-43C7-A904-E9381D047EAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9EE5989B-2A96-4787-84BC-09C8D162342B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EE5989B-2A96-4787-84BC-09C8D162342B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EE5989B-2A96-4787-84BC-09C8D162342B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06C0335E-9D33-43C7-A904-E9381D047EAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C0335E-9D33-43C7-A904-E9381D047EAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C0335E-9D33-43C7-A904-E9381D047EAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C0335E-9D33-43C7-A904-E9381D047EAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
